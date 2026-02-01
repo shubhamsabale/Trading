@@ -10,7 +10,7 @@ def process_positions(positions_data):
 
     df = pd.DataFrame(net_positions)
     # Selecting relevant columns
-    cols = ['tradingsymbol', 'exchange', 'quantity', 'last_price', 'm2m', 'pnl']
+    cols = ['tradingsymbol', 'exchange', 'quantity', 'average_price', 'last_price', 'm2m', 'pnl']
     df = df[cols]
 
     return df
