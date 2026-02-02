@@ -15,7 +15,14 @@ def generate_mtm_chart(df, output_path="mtm_dashboard.png"):
     plt.figure(figsize=(10, 6))
     colors = ['green' if x >= 0 else 'red' for x in df['m2m']]
 
-    plt.bar(df['tradingsymbol'], df['m2m'], color=colors)
+    bars = plt.bar(df['tradingsymbol'], df['m2m'], color=colors)
+
+    # Add value labels on top of each bar
+    for bar in bars:
+        yval = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2, yval, f'{yval:,.2f}',
+                 va='bottom' if yval > 0 else 'top', ha='center', fontsize=9)
+
     plt.xlabel('Trading Symbol')
     plt.ylabel('MTM Profit/Loss')
     plt.title('Mark to Market (MTM) per Position')
