@@ -29,29 +29,41 @@ class KiteManager:
             return {"net": [], "day": []}
 
     def _get_mock_positions(self):
-        # Mock data for demonstration
+        """
+        Returns mock position data for testing and development.
+        Covers Equity, Futures, and Options across NSE, NFO, and MCX.
+        """
         return {
             "net": [
                 {
                     "tradingsymbol": "SBIN",
                     "exchange": "NSE",
+                    "instrument_token": 1234,
+                    "product": "CNC",
                     "quantity": 100,
+                    "average_price": 730.50,
                     "last_price": 750.50,
-                    "m2m": 1500.0,
+                    "m2m": 2000.0,
                     "pnl": 2000.0
                 },
                 {
                     "tradingsymbol": "RELIANCE",
                     "exchange": "NSE",
+                    "instrument_token": 5678,
+                    "product": "CNC",
                     "quantity": 50,
+                    "average_price": 2910.00,
                     "last_price": 2900.00,
                     "m2m": -500.0,
-                    "pnl": 1000.0
+                    "pnl": -500.0
                 },
                 {
                     "tradingsymbol": "NIFTY24MAR22000CE",
                     "exchange": "NFO",
+                    "instrument_token": 9012,
+                    "product": "NRML",
                     "quantity": 50,
+                    "average_price": 70.0,
                     "last_price": 120.0,
                     "m2m": 2500.0,
                     "pnl": 2500.0
@@ -59,7 +71,10 @@ class KiteManager:
                 {
                     "tradingsymbol": "CRUDEOIL24MARFUT",
                     "exchange": "MCX",
-                    "quantity": 100,
+                    "instrument_token": 3456,
+                    "product": "NRML",
+                    "quantity": 1,
+                    "average_price": 6512.0,
                     "last_price": 6500.0,
                     "m2m": -1200.0,
                     "pnl": -1200.0
