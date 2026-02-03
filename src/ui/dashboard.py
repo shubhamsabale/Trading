@@ -15,7 +15,14 @@ def generate_mtm_chart(df, output_path="mtm_dashboard.png"):
     plt.figure(figsize=(10, 6))
     colors = ['green' if x >= 0 else 'red' for x in df['m2m']]
 
-    plt.bar(df['tradingsymbol'], df['m2m'], color=colors)
+    bars = plt.bar(df['tradingsymbol'], df['m2m'], color=colors)
+
+    # Add value labels on top of bars
+    for bar in bars:
+        yval = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2, yval, round(yval, 2),
+                 va='bottom' if yval > 0 else 'top', ha='center', fontsize=10)
+
     plt.xlabel('Trading Symbol')
     plt.ylabel('MTM Profit/Loss')
     plt.title('Mark to Market (MTM) per Position')
@@ -26,6 +33,27 @@ def generate_mtm_chart(df, output_path="mtm_dashboard.png"):
     plt.savefig(output_path)
     plt.close()
     print(f"MTM chart saved to {output_path}")
+
+def generate_exposure_chart(df, output_path="exposure_distribution.png"):
+    """
+    Generates a pie chart showing exposure distribution per position.
+    """
+    if df.empty:
+        print("No positions to plot.")
+        return
+
+    # Use 'Agg' backend for non-interactive environments
+    plt.switch_backend('Agg')
+
+    plt.figure(figsize=(8, 8))
+    plt.pie(df['exposure'], labels=df['tradingsymbol'], autopct='%1.1f%%', startangle=140)
+    plt.title('Exposure Distribution per Position')
+
+    plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.close()
+    print(f"Exposure chart saved to {output_path}")
 
 def display_summary(df, total_mtm):
     """
