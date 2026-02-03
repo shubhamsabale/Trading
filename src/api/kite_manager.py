@@ -36,6 +36,7 @@ class KiteManager:
                     "tradingsymbol": "SBIN",
                     "exchange": "NSE",
                     "quantity": 100,
+                    "average_price": 730.50,
                     "last_price": 750.50,
                     "m2m": 1500.0,
                     "pnl": 2000.0
@@ -44,6 +45,7 @@ class KiteManager:
                     "tradingsymbol": "RELIANCE",
                     "exchange": "NSE",
                     "quantity": 50,
+                    "average_price": 2880.00,
                     "last_price": 2900.00,
                     "m2m": -500.0,
                     "pnl": 1000.0
@@ -52,6 +54,7 @@ class KiteManager:
                     "tradingsymbol": "NIFTY24MAR22000CE",
                     "exchange": "NFO",
                     "quantity": 50,
+                    "average_price": 70.0,
                     "last_price": 120.0,
                     "m2m": 2500.0,
                     "pnl": 2500.0
@@ -60,6 +63,7 @@ class KiteManager:
                     "tradingsymbol": "CRUDEOIL24MARFUT",
                     "exchange": "MCX",
                     "quantity": 100,
+                    "average_price": 6512.0,
                     "last_price": 6500.0,
                     "m2m": -1200.0,
                     "pnl": -1200.0
