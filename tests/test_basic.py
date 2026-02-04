@@ -13,6 +13,9 @@ class TestDataProcessor(unittest.TestCase):
         self.assertIsInstance(df, pd.DataFrame)
         self.assertFalse(df.empty)
         self.assertEqual(df.iloc[0]['tradingsymbol'], "TEST")
+        # Check exposure calculation
+        expected_exposure = 10 * 100.0
+        self.assertEqual(df.iloc[0]['exposure'], expected_exposure)
 
     def test_calculate_total_mtm(self):
         df = pd.DataFrame([

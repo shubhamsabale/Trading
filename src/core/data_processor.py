@@ -9,8 +9,11 @@ def process_positions(positions_data):
         return pd.DataFrame()
 
     df = pd.DataFrame(net_positions)
+    # Calculate Exposure: |Quantity * Last Price|
+    df['exposure'] = (df['quantity'] * df['last_price']).abs()
+
     # Selecting relevant columns
-    cols = ['tradingsymbol', 'exchange', 'quantity', 'last_price', 'm2m', 'pnl']
+    cols = ['tradingsymbol', 'exchange', 'quantity', 'last_price', 'm2m', 'pnl', 'exposure']
     df = df[cols]
 
     return df
