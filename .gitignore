@@ -3,3 +3,4 @@ __pycache__/
 *$py.class
 .env
 mtm_dashboard.png
+exposure_distribution.png
